@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 
@@ -17,7 +18,11 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/login")
-    public String login(Principal principal, Model model) {
+    public String login(Principal principal, Model model,
+                        @RequestParam(name = "error", required = false) Boolean error) {
+        if (error != null) {
+            model.addAttribute("error", "Неверный email или пароль");
+        }
         model.addAttribute("user", userService.getUserByPrincipal(principal));
         return "login";
     }
