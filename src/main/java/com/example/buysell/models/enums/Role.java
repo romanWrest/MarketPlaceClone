@@ -8,6 +8,6 @@ public enum Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return name(); // Возвращает имя элемента перечисления (например, "ROLE_USER")
+        return name(); 
     }
 }
