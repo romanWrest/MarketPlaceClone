@@ -32,7 +32,7 @@
 
 ### Установка
 ```
-git clone https://github.com/ваш-username/buysell.git
+git clone https://github.com/romanWrest/buysell.git
 cd buysell
 ```
 Создайте БД:
